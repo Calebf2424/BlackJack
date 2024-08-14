@@ -1,6 +1,7 @@
 #ifndef CARDS_H
 #define CARDS_H
 #include <iostream>
+#include <algorithm>
 
 class Card {
  public:

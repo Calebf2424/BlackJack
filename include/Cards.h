@@ -10,8 +10,8 @@ class Card {
     int getValue();
 
  private:
-    char suit;
-    int value;
+    char _suit;
+    int _value;
 };
 
 class CardDeck {

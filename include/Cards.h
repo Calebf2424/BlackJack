@@ -2,6 +2,8 @@
 #define CARDS_H
 #include <iostream>
 #include <algorithm>
+#include <random>
+#include <chrono>
 
 class Card {
  public:

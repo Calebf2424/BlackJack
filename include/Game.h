@@ -2,7 +2,15 @@
 #define GAME_H
 
 class Game {
-
+ public:
+    Game();
+    void start();
+    void playAgain();
+    void runGame();
+    void quit();
+    char handleInput();
+    void updateBoard();
+    //render();
 };
 
 

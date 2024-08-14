@@ -23,7 +23,7 @@ class CardDeck {
     void createDeck();
     void shuffleDeck(std::vector<Card*>& deck);
     Card* drawCard(std::vector<Card*>& deck);
-    void addToDeck(Card* card, std::vector<Card*>& hand);
+    void addToDeck(std::vector<Card*>& deck, std::vector<Card*>& hand);
     void resetDeck(std::vector<Card*>& deck, std::vector<Card*> hand1, std::vector<Card*> hand2);
     CardDeck~();
  private:

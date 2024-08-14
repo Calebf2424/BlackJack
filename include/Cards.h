@@ -18,10 +18,10 @@ class CardDeck {
  public:
     cardDeck() : deck(52) {};
     void createDeck();
-    void shuffleDeck();
-    void playerDrawCard();
-    void dealerDrawCard();
-    void resetDeck();
+    void shuffleDeck(std::vector<Card*>& deck);
+    Card* drawCard(std::vector<Card*>& deck, std::vector<Card*>& hand);
+    void addToDeck(Card* card, std::vector<Card*>& hand);
+    void resetDeck(std::vector<Card*>& deck, std::vector<Card*> hand1, std::vector<Card*> hand2);
     CardDeck~();
  private:
     std::vector<Card*> deck;

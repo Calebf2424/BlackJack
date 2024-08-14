@@ -1,6 +1,6 @@
 #ifndef CARDS_H
 #define CARDS_H
-#include <vector>
+#include <utility>
 
 class Card {
  public:
@@ -19,8 +19,8 @@ class CardDeck {
     cardDeck() : deck(52) {};
     void createDeck();
     void shuffleDeck();
-    void giveToDealerHand();
-    void giveToPlayerHand();
+    void playerDrawCard();
+    void dealerDrawCard();
     void resetDeck();
     CardDeck~();
  private:

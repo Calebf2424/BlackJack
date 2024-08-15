@@ -68,7 +68,7 @@ void CardDeck::resetDeck(std::vector<Card*>& deck, std::vector<Card*>& hand1, st
     hand2.clear();
 }
 
-CardDeck::CardDeck~() {
+CardDeck::~CardDeck() {
   for (Card* card : deck) {
     delete card;
   }

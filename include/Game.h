@@ -12,6 +12,9 @@ class Game {
     char handleInput();
     void updateBoard();
     //render();
+
+ private:
+    CardDeck* deck;
 };
 
 

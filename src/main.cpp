@@ -7,6 +7,8 @@ int main() {
     game->start();
     game->runGame();
     game->quit();
+
+    game = nullptr;
     return 0;
 }
 

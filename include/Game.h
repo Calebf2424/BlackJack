@@ -6,7 +6,7 @@ class Game {
     Game();
     ~Game();
     void start();
-    void playAgain();
+    bool playAgain();
     void runGame();
     void quit();
     char handleInput();
@@ -15,6 +15,7 @@ class Game {
 
  private:
     CardDeck* deck;
+    bool _playAgain;
 };
 
 

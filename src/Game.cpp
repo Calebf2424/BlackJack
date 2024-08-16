@@ -15,8 +15,8 @@ void Game::runGame() {
 }
 
 void Game::playAgain() {
-    char c = handleInput;
-    c == 'Y' ? _playAgain = true : _playAgain = false;
+    char c = handleInput();
+    _playAgain = (c == 'Y');
 }
 
 void Game::quit() {

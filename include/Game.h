@@ -6,7 +6,7 @@ class Game {
     Game();
     ~Game();
     void start();
-    bool playAgain();
+    void playAgain();
     void runGame();
     void quit();
     char handleInput();

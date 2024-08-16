@@ -14,8 +14,9 @@ void Game::runGame() {
 
 }
 
-Bool Game::playAgain() {
-    _playAgain = handleInput()
+void Game::playAgain() {
+    char c = handleInput;
+    c == 'Y' ? _playAgain = true : _playAgain = false;
 }
 
 void Game::quit() {

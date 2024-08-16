@@ -1,7 +1,13 @@
 #include <iostream>
 
 int main() {
-  std::cout << "Hello world!" << std::endl;
+    Game* myGame = new Game();
 
-  return 0;
+
+    
+  
+    delete myGame;
+
+    return 0;
 }
+

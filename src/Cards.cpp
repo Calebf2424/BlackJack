@@ -10,8 +10,8 @@ int Card::getValue() {
 }
 
 void Card::displayCardInfo() {
-    char _suit = getSuit();
-    int _value = getValue();
+    char suit = getSuit();
+    int value = getValue();
     if(value == 1) {
         std::cout << "A" << suit;
         return;
@@ -35,7 +35,7 @@ void CardDeck::createDeck() {
   int index = 0;
   for (char suit : suits) {
     for (int value = 1; value <= 13; value++) {
-      deck[index] = new card(suit, value);
+      deck[index] = new Card(suit, value);
     }
   }
 }

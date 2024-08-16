@@ -1,4 +1,6 @@
 #include <iostream>
+#include "Game.h"
+#include "Cards.h"
 
 int main() {
     Game* game = new Game();

@@ -11,16 +11,16 @@ void Game::runGame() {
 
 }
 
-void Game::playAgain() {
-
+Bool Game::playAgain() {
+    handleInput()
 }
 
 void Game::quit() {
-    
+    delete this;
 }
 
-void Game::handleInput() {
-
+char Game::handleInput() {
+    
 }
 
 void Game::updateBoard() {

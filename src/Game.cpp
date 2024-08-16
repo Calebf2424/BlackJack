@@ -5,6 +5,9 @@ Game::Game() : deck(nullptr), _playerScore(0), _dealerScore(0){}
 Game::~Game() {if (deck) delete deck;}
 void Game::start() {
     deck = new CardDeck();
+    while (_playAgain) {
+        runGame();
+    }
 }
 
 void Game::runGame() {
@@ -12,7 +15,7 @@ void Game::runGame() {
 }
 
 Bool Game::playAgain() {
-    handleInput()
+    _playAgain = handleInput()
 }
 
 void Game::quit() {

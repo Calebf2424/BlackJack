@@ -9,7 +9,7 @@ class Game {
     void playAgain();
     void runGame();
     void quit();
-    char handleInput();
+    char handleInputYN();
     void updateBoard();
     //render();
 

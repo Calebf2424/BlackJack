@@ -7,7 +7,7 @@
 
 class Card {
  public:
-    Card(char s, int v) : suit(s), value(v) {}
+    Card(char s, int v) : _suit(s), _value(v) {}
     void displayCardInfo();
     char getSuit();
     int getValue();
@@ -19,13 +19,13 @@ class Card {
 
 class CardDeck {
  public:
-    cardDeck() : deck(52) {};
+    CardDeck() : deck(52) {};
     void createDeck();
     void shuffleDeck(std::vector<Card*>& deck);
     Card* drawCard(std::vector<Card*>& deck);
     void addToDeck(std::vector<Card*>& deck, std::vector<Card*>& hand);
     void resetDeck(std::vector<Card*>& deck, std::vector<Card*>& hand1, std::vector<Card*>& hand2);
-    CardDeck~();
+    ~CardDeck();
  private:
     std::vector<Card*> deck;
     std::vector<Card*> dealer;

@@ -16,6 +16,8 @@ class Game {
  private:
     CardDeck* deck;
     bool _playAgain;
+    int _playerScore;
+    int _dealerScore;
 };
 
 

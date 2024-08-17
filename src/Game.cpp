@@ -41,5 +41,5 @@ char Game::handleInputYN() {
 }
 
 void Game::updateBoard() {
-
+    
 }

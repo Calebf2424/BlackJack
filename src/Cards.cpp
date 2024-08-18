@@ -40,36 +40,53 @@ void CardDeck::createDeck() {
   }
 }
 
-void CardDeck::shuffleDeck(std::vector<Card*>& deck) {
+void CardDeck::shuffleDeck() {
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::default_random_engine engine(seed);
     std::shuffle(deck.begin(), deck.end(), engine);
 }
 
-Card* CardDeck::drawCard(std::vector<Card*>& deck) {
+Card* CardDeck::drawCard() {
     Card* card = deck[0];
     deck.erase(deck.begin());
     return card;
 }
 
-void CardDeck::addToDeck(std::vector<Card*>& deck, std::vector<Card*>& hand) {
-    Card* card = drawCard(deck);
-    hand.push_back(card);
+void CardDeck::addToPlayerDeck() {
+    Card* card = drawCard();
+    player.push_back(card);
 }
 
-void CardDeck::resetDeck(std::vector<Card*>& deck, std::vector<Card*>& hand1, std::vector<Card*>& hand2) {
-    for (Card* card : hand1) {
+void CardDeck::addToDealerDeck() {
+    Card* card = drawCard();
+    dealer.push_back(card);
+}
+
+void CardDeck::resetDeck() {
+    for (Card* card : dealer) {
         deck.push_back(card);
     }
-    for (Card* card : hand2) {
+    for (Card* card : player) {
         deck.push_back(card);
     }
-    hand1.clear();
-    hand2.clear();
+    player.clear();
+    dealer.clear();
 }
 
 CardDeck::~CardDeck() {
   for (Card* card : deck) {
     delete card;
   }
+}
+
+void CardDeck::updateBoard() {
+    std::cout << "Dealer" << std::endl;
+    for (Card* card : dealer) {
+        card->displayCardInfo();
+    }
+    std::cout << "\n\n\n\n\n\n";
+    std::cout << "Player:" << std::endl;
+    for (Card* cardP : player) {
+        cardP->displayCardInfo();
+    }
 }

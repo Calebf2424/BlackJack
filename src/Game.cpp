@@ -2,17 +2,20 @@
 #include "Cards.h"
 #include <cctype>
 
-Game::Game() : deck(nullptr), _playerScore(0), _dealerScore(0){}
-Game::~Game() {if (deck) delete deck;}
+Game::Game() : cardDeck(nullptr), _playerScore(0), _dealerScore(0){}
+Game::~Game() {if (cardDeck) delete cardDeck;}
 void Game::start() {
-    deck = new CardDeck();
+    cardDeck = new CardDeck();
+    cardDeck->createDeck();
     while (_playAgain) {
         runGame();
     }
 }
 
 void Game::runGame() {
-    
+    std::cout << "Black Jack" << std::endl;
+    cardDeck->shuffleDeck();
+
 }
 
 void Game::playAgain() {
@@ -41,17 +44,11 @@ char Game::handleInputYN() {
 }
 
 void Game::clearScreen() {
-
+    #if defined(_WIN32) || defined(_WIN64)
+        system("cls");
+    #else
+        system("clear");
+    #endif
 }
 
-void Game::updateBoard(std::vector<Card*>& player, std::vector<Card*>& dealer) {
-    std::cout << "Dealer" << std::endl;
-    for (Card* card : dealer) {
-        card->displayCardInfo();
-    }
-    std::cout << "\n\n\n\n\n\n";
-    std::cout << "Player:" << std::endl;
-    for (Card* cardP : player) {
-        cardP->displayCardInfo();
-    }
-}
+

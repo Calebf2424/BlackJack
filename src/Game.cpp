@@ -31,7 +31,7 @@ char Game::handleInputYN() {
         std::cout << "Enter Y/N" << std::endl;
         std::cin >> input;
         input = std::toupper(input);
-        if (input == 'Y' || 'N') {
+        if (input == 'Y' || input == 'N') {
             valid = true;
         } else {
             std::cout << "Invalid input" << std::endl;

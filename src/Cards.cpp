@@ -59,6 +59,7 @@ void CardDeck::addToPlayerDeck() {
 
 void CardDeck::addToDealerDeck() {
     Card* card = drawCard();
+    
     dealer.push_back(card);
 }
 
@@ -89,4 +90,22 @@ void CardDeck::updateBoard() {
     for (Card* cardP : player) {
         cardP->displayCardInfo();
     }
+}
+
+int CardDeck::getDealerScore() {
+    return _dealerScore;
+}
+
+int CardDeck::getPlayerScore() {
+    return _playerScore;
+}
+
+void CardDeck::updateDealerScore(Card* card) {
+    int toAdd = card->getValue();
+    //need to figure out choices for A = 1 vs A = 11
+}
+
+void CardDeck::updatePlayerScore(Card* card) {
+    int toAdd = card->getValue();
+    //need to figure out choices for A = 1 vs A = 11
 }

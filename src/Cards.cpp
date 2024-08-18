@@ -13,19 +13,19 @@ void Card::displayCardInfo() {
     char suit = getSuit();
     int value = getValue();
     if(value == 1) {
-        std::cout << "A" << suit;
+        std::cout << "A" << suit << " ";
         return;
     }
     else if(value == 11) {
-        std::cout << "J" << suit;
+        std::cout << "J" << suit << " ";
     }
     else if (value == 12) {
-        std::cout << "Q" << suit;
+        std::cout << "Q" << suit << " ";
     }
     else if (value == 13) {
-        std::cout << "K" << suit;
+        std::cout << "K" << suit << " ";
     } else {
-        std::cout << value << suit;
+        std::cout << value << suit << " ";
     }
     
 }

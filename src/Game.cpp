@@ -2,20 +2,26 @@
 #include "Cards.h"
 #include <cctype>
 
-Game::Game() : cardDeck(nullptr), _playerScore(0), _dealerScore(0){}
+Game::Game() : cardDeck(nullptr){}
 Game::~Game() {if (cardDeck) delete cardDeck;}
+
+void Game::runGame() {
+    std::cout << "Black Jack" << std::endl;
+    cardDeck->shuffleDeck();
+    cardDeck->addToDealerDeck();
+    cardDeck->addToPlayerDeck();
+    cardDeck->addToPlayerDeck();
+    cardDeck->updateBoard();
+    std::cout << "Hit? ";
+    char choice = handleInputYN(); 
+}
+
 void Game::start() {
     cardDeck = new CardDeck();
     cardDeck->createDeck();
     while (_playAgain) {
         runGame();
     }
-}
-
-void Game::runGame() {
-    std::cout << "Black Jack" << std::endl;
-    cardDeck->shuffleDeck();
-
 }
 
 void Game::playAgain() {

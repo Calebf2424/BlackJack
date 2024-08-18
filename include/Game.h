@@ -18,8 +18,6 @@ class Game {
     CardDeck* cardDeck;
     bool _win;
     bool _playAgain;
-    int _playerScore;
-    int _dealerScore;
 };
 
 

@@ -1,11 +1,13 @@
 #ifndef GAME_H
 #define GAME_H
+#include "Cards.h"
 
 class Game {
  public:
     Game();
     ~Game();
     void start();
+    void clearScreen();
     void playAgain();
     void runGame();
     void quit();

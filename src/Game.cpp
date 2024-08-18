@@ -40,6 +40,14 @@ char Game::handleInputYN() {
     return input;
 }
 
-void Game::updateBoard() {
-    
+void Game::updateBoard(std::vector<Card*>& dealer, std::vector<Card*>& player) {
+    std::cout << "Dealer" << std::endl;
+    for (Card* card : dealer) {
+        card->displayCardInfo();
+    }
+    std::cout << "\n\n\n\n\n\n";
+    std::cout << "Player:" << std::endl;
+    for (Card* cardP : player) {
+        cardP->displayCardInfo();
+    }
 }

@@ -10,7 +10,7 @@ class Game {
     void runGame();
     void quit();
     char handleInputYN();
-    void updateBoard();
+    void updateBoard(std::vector<Card*>&, std::vector<Card*>&);
     //render();
 
  private:

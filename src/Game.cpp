@@ -77,6 +77,8 @@ void Game::start() {
     cardDeck->createDeck();
     while (_playAgain) {
         runGame();
+        playAgain();
+        cardDeck->resetDeck();
     }
 }
 

@@ -12,8 +12,8 @@ class Game {
     void runGame();
     void setWin();
     void setDraw();
-    void getWin();
-    void getDraw();
+    bool getWin();
+    bool getDraw();
     void calculateWinner();
     void quit();
     char handleInputYN();

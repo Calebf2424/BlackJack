@@ -31,6 +31,8 @@ class CardDeck {
     int getDealerScore();
     void updatePlayerScore(Card*);
     void updateDealerScore(Card*);
+    void hasDealerBust();
+    void hasPlayerBust();
     ~CardDeck();
  private:
     std::vector<Card*> deck;

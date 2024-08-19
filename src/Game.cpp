@@ -2,7 +2,7 @@
 #include "Cards.h"
 #include <cctype>
 
-Game::Game() : cardDeck(nullptr){}
+Game::Game() : cardDeck(nullptr), _win(false){}
 Game::~Game() {if (cardDeck) delete cardDeck;}
 
 void Game::runGame() {
@@ -12,8 +12,26 @@ void Game::runGame() {
     cardDeck->addToPlayerDeck();
     cardDeck->addToPlayerDeck();
     cardDeck->updateBoard();
-    std::cout << "Hit? ";
-    char choice = handleInputYN(); 
+     if (cardDeck->playerBlackJack()) {
+        setWin();
+        break;
+    }
+    int pScore = cardDeck->getPlayerScore();
+    while (pScore < 21) {
+        std::cout << "Hit? ";
+        char choice = handleInputYN();
+        if (choice == 'Y') {
+            cardDeck->addToPlayerDeck();
+            cardDeck->updateBoard();
+        } else {
+            break;
+        }
+        pScore = cardDeck->getPlayerScore();
+    } 
+}
+
+void Game::setWin() {
+    _win == true;
 }
 
 void Game::start() {

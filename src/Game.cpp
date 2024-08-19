@@ -128,9 +128,11 @@ char Game::handleInputYN() {
 }
 
 void Game::clearScreen() {
-    #if defined(_WIN32) || defined(_WIN64)
+    #if defined _WIN32
         system("cls");
-    #else
+    #elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
+        system("clear");
+    #elif defined (__APPLE__)
         system("clear");
     #endif
 }

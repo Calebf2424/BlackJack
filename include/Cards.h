@@ -33,6 +33,8 @@ class CardDeck {
     void updateDealerScore(Card*);
     void hasDealerBust();
     void hasPlayerBust();
+    bool getHasDealerBust();
+    bool getHasPlayerBust();
     bool dealerBlackJack();
     bool playerBlackJack();
     ~CardDeck();

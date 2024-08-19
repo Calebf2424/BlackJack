@@ -142,6 +142,14 @@ void CardDeck::hasPlayerBust() {
     }
 }
 
+bool CardDeck::getHasDealerBust() {
+    return _dealerBust;
+}
+
+bool CardDeck::getHasPlayerBust() {
+    return _playerBust;
+}
+
 bool CardDeck::dealerBlackJack() {
     if (_dealerScore == 21 && dealer.size() == 2) return true;
     return false;

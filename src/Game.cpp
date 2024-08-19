@@ -33,7 +33,8 @@ void Game::runGame() {
             cardDeck->updateBoard();
             pScore = cardDeck->getPlayerScore();
             cardDeck->hasPlayerBust();
-            if (_playerBust) {
+            bool playerBust = cardDeck->getHasPlayerBust();
+            if (playerBust) {
                 calculateWinner();
                 return;
             }
@@ -49,7 +50,8 @@ void Game::runGame() {
         cardDeck->updateBoard();
         dScore = cardDeck->getDealerScore();
         cardDeck->hasDealerBust();
-        if (_dealerBust) {
+        bool dealerBust = cardDeck->getHasDealerBust();
+        if (dealerBust) {
             setWin();
             calculateWinner();
             return;

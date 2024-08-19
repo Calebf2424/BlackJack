@@ -12,10 +12,19 @@ void Game::runGame() {
     cardDeck->addToPlayerDeck();
     cardDeck->addToPlayerDeck();
     cardDeck->updateBoard();
-     if (cardDeck->playerBlackJack()) {
+
+    // Check for initial Blackjacks
+    if (cardDeck->playerBlackJack()) {
         setWin();
-        break;
+        calculateWinner();
+        return;
     }
+    if (cardDeck->dealerBlackJack()) {
+        calculateWinner();
+        return;
+    }
+
+    // Player's turn
     int pScore = cardDeck->getPlayerScore();
     while (pScore < 21) {
         std::cout << "Hit? ";
@@ -23,25 +32,35 @@ void Game::runGame() {
         if (choice == 'Y') {
             cardDeck->addToPlayerDeck();
             cardDeck->updateBoard();
+            pScore = cardDeck->getPlayerScore();
+            cardDeck->hasPlayerBust();
+            if (_playerBust) {
+                calculateWinner();
+                return;
+            }
         } else {
             break;
         }
-        pScore = cardDeck->getPlayerScore();
     }
-    
-    if(cardDeck->dealerBlackJack()) {
-        break;
-    }
+
+    // Dealer's turn
     int dScore = cardDeck->getDealerScore();
     while (dScore < 17) {
         cardDeck->addToDealerDeck();
         cardDeck->updateBoard();
         dScore = cardDeck->getDealerScore();
+        cardDeck->hasDealerBust();
+        if (_dealerBust) {
+            setWin();
+            calculateWinner();
+            return;
+        }
     }
+
+    // Determine the outcome
     if(pScore > dScore) {
         setWin();
-    } 
-    else if (pScore == dScore) {
+    } else if (pScore == dScore) {
         setDraw();
     }
     calculateWinner();
@@ -50,7 +69,7 @@ void Game::runGame() {
 void Game::calculateWinner() {
     if (getDraw()) {
         std::cout << "Game is a Draw !!" << std::endl;
-        break;
+        return;
     }
     bool win = getWin();
     win ? std::cout << "Player Wins!!" << std::endl : std::cout << "Dealer Wins!!" << std::endl;

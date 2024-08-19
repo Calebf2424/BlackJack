@@ -4,7 +4,7 @@
 
 class Game {
  public:
-    Game();
+    Game() : _win(false);
     ~Game();
     void start();
     void clearScreen();

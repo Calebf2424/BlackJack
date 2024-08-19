@@ -11,6 +11,7 @@ class Game {
     void playAgain();
     void runGame();
     void setWin();
+    void setDraw();
     void quit();
     char handleInputYN();
     //render();
@@ -18,6 +19,7 @@ class Game {
  private:
     CardDeck* cardDeck;
     bool _win;
+    bool _draw;
     bool _playAgain;
 };
 

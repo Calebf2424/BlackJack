@@ -44,6 +44,7 @@ void Game::runGame() {
     else if (pScore == dScore) {
         setDraw();
     }
+    calculateWinner();
 }
 
 void Game::calculateWinner() {

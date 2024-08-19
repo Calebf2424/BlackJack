@@ -108,23 +108,36 @@ int CardDeck::getPlayerScore() {
 void CardDeck::updateDealerScore(Card* card) {
     int toAdd = card->getValue();
     if (toAdd == 1) {
-        dealerAces++;
+        _dealerAces++;
     }
     _dealerScore += toAdd;
-    while (dealerScore > 21 && dealerAces > 0) {
-        dealerScore -= 10;
-        dealerAces--;
+    while (_dealerScore > 21 && _dealerAces > 0) {
+        _dealerScore -= 10;
+        _dealerAces--;
     }
 }
 
 void CardDeck::updatePlayerScore(Card* card) {
     int toAdd = card->getValue();
     if (toAdd == 1) {
-        playerAces++;
+        _playerAces++;
     }
     _playerScore += toAdd;
-    while (playerScore > 21 && playerAces > 0) {
-        playerScore -= 10;
-        playerAces--;
+    while (_playerScore > 21 && _playerAces > 0) {
+        _playerScore -= 10;
+        _playerAces--;
     }
 }
+
+void CardDeck::hasDealerBust() {
+    if (_dealerScore > 21) {
+        _dealerBust = true;
+    }
+}
+
+void CardDeck::hasPlayerBust() {
+    if (_playerScore > 21) {
+        _playerBust = true;
+    }
+}
+

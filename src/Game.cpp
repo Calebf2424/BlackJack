@@ -2,7 +2,7 @@
 #include "Cards.h"
 #include <cctype>
 
-Game::Game() : cardDeck(nullptr), _win(false){}
+Game::Game() : cardDeck(nullptr), _win(false), _draw(false){}
 Game::~Game() {if (cardDeck) delete cardDeck;}
 
 void Game::runGame() {
@@ -49,7 +49,11 @@ void Game::runGame() {
 
 
 void Game::setWin() {
-    _win == true;
+    _win = true;
+}
+
+void Game::setDraw() {
+    _draw = true;
 }
 
 void Game::start() {

@@ -72,6 +72,11 @@ void CardDeck::resetDeck() {
     }
     player.clear();
     dealer.clear();
+
+    _dealerScore = 0;
+    _playerScore = 0;
+    _dealerAces = 0;
+    _playerAces = 0;
 }
 
 CardDeck::~CardDeck() {

@@ -19,7 +19,7 @@ class Card {
 
 class CardDeck {
  public:
-    CardDeck() : deck(52), _playerScore(0), _dealerScore(0) {};
+    CardDeck() : deck(52), _playerScore(0), _dealerScore(0), _playerAces(0), _dealerAces(0){};
     void createDeck();
     void shuffleDeck();
     Card* drawCard();
@@ -38,6 +38,8 @@ class CardDeck {
     std::vector<Card*> player;
     int _playerScore;
     int _dealerScore;
+    int _playerAces;
+    int _dealerAces;
 };
 
 

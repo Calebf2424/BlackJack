@@ -10,6 +10,7 @@ class Game {
     void clearScreen();
     void playAgain();
     void runGame();
+    void setWin();
     void quit();
     char handleInputYN();
     //render();

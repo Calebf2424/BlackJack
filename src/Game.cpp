@@ -27,8 +27,26 @@ void Game::runGame() {
             break;
         }
         pScore = cardDeck->getPlayerScore();
+    }
+    
+    if(cardDeck->dealerBlackJack()) {
+        break;
+    }
+    int dScore = cardDeck->getDealerScore();
+    while (dScore < 17) {
+        cardDeck->addToDealerDeck();
+        cardDeck->updateBoard();
+        dScore = getDealerScore();
+    }
+    if(pScore > dScore) {
+        setWin();
     } 
+    else if (pScore == dScore) {
+        setDraw();
+    }
 }
+
+
 
 void Game::setWin() {
     _win == true;

@@ -2,7 +2,6 @@
 #include "Cards.h"
 #include <cctype>
 
-Game::Game();
 Game::~Game() {if (cardDeck) delete cardDeck;}
 
 void Game::runGame() {

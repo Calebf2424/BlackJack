@@ -36,7 +36,7 @@ void Game::runGame() {
     while (dScore < 17) {
         cardDeck->addToDealerDeck();
         cardDeck->updateBoard();
-        dScore = getDealerScore();
+        dScore = cardDeck->getDealerScore();
     }
     if(pScore > dScore) {
         setWin();
@@ -46,7 +46,22 @@ void Game::runGame() {
     }
 }
 
+void Game::calculateWinner() {
+    if (getDraw()) {
+        std::cout << "Game is a Draw !!" << std::endl;
+        break;
+    }
+    bool win = getWin();
+    win ? std::cout << "Player Wins!!" << std::endl : std::cout << "Dealer Wins!!" << std::endl;
+}
 
+bool Game::getDraw() {
+    return _draw;
+}
+
+bool Game::getWin() {
+    return _win;
+}
 
 void Game::setWin() {
     _win = true;
@@ -96,5 +111,3 @@ void Game::clearScreen() {
         system("clear");
     #endif
 }
-
-

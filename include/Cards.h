@@ -19,7 +19,7 @@ class Card {
 
 class CardDeck {
  public:
-    CardDeck() : deck(52), _playerScore(0), _dealerScore(0), _playerAces(0), _dealerAces(0){};
+    CardDeck() : deck(52), _playerScore(0), _dealerScore(0), _playerAces(0), _dealerAces(0), _playerBust(false), _dealerBust(false){};
     void createDeck();
     void shuffleDeck();
     Card* drawCard();
@@ -40,6 +40,8 @@ class CardDeck {
     int _dealerScore;
     int _playerAces;
     int _dealerAces;
+    bool _playerBust;
+    bool _dealerBust;
 };
 
 

@@ -107,10 +107,24 @@ int CardDeck::getPlayerScore() {
 
 void CardDeck::updateDealerScore(Card* card) {
     int toAdd = card->getValue();
-    //need to figure out choices for A = 1 vs A = 11
+    if (toAdd == 1) {
+        dealerAces++;
+    }
+    _dealerScore += toAdd;
+    while (dealerScore > 21 && dealerAces > 0) {
+        dealerScore -= 10;
+        dealerAces--;
+    }
 }
 
 void CardDeck::updatePlayerScore(Card* card) {
     int toAdd = card->getValue();
-    //need to figure out choices for A = 1 vs A = 11
+    if (toAdd == 1) {
+        playerAces++;
+    }
+    _playerScore += toAdd;
+    while (playerScore > 21 && playerAces > 0) {
+        playerScore -= 10;
+        playerAces--;
+    }
 }

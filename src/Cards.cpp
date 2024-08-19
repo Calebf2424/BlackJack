@@ -54,12 +54,13 @@ Card* CardDeck::drawCard() {
 
 void CardDeck::addToPlayerDeck() {
     Card* card = drawCard();
+    updatePlayerScore(card);
     player.push_back(card);
 }
 
 void CardDeck::addToDealerDeck() {
     Card* card = drawCard();
-    
+    updateDealerScore(card);
     dealer.push_back(card);
 }
 

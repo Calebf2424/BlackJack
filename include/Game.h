@@ -4,7 +4,7 @@
 
 class Game {
  public:
-    Game() : _win(false);
+    Game() : cardDeck(nullptr), _win(false), _draw(false){};
     ~Game();
     void start();
     void clearScreen();

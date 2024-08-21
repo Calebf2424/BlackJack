@@ -66,9 +66,9 @@ void Game::runGame() {
     }
 
     // Determine the outcome
-    if(pScore > dScore) {
+   if (cardDeck->getPlayerScore() > cardDeck->getDealerScore()) {
         setWin();
-    } else if (pScore == dScore) {
+    } else if (cardDeck->getPlayerScore() == cardDeck->getDealerScore()) {
         setDraw();
     }
     calculateWinner();

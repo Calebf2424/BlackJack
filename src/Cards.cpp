@@ -7,7 +7,7 @@ std::string Card::getSuit() {
         case 'D': return '♦';
         case 'S': return '♠';
         case 'C': return '♣';
-        default: return _suit;
+        default: return std::string(1, _suit);
     }
 }
 

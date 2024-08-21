@@ -21,10 +21,7 @@ void Game::runGame() {
         calculateWinner();
         return;
     }
-    if (cardDeck->dealerBlackJack()) {
-        calculateWinner();
-        return;
-    }
+    
 
     // Player's turn
     int pScore = cardDeck->getPlayerScore();
@@ -49,6 +46,11 @@ void Game::runGame() {
 
     // Dealer's turn
     int dScore = cardDeck->getDealerScore();
+    cardDeck->addToDealerDeck();
+    if (cardDeck->dealerBlackJack()) {
+        calculateWinner();
+        return;
+    }
     while (dScore < 17) {
         cardDeck->addToDealerDeck();
         clearScreen();

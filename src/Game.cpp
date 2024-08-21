@@ -39,7 +39,7 @@ void Game::runGame() {
             cardDeck->hasPlayerBust();
             bool playerBust = cardDeck->getHasPlayerBust();
             if (playerBust) {
-                playerLoss();
+                calculateWinner();
                 return;
             }
         } else {

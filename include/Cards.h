@@ -9,7 +9,7 @@ class Card {
  public:
     Card(char s, int v) : _suit(s), _value(v){}
     void displayCardInfo();
-    char getSuit();
+    std::string getSuit();
     int getValue();
 
  private:

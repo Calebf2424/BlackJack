@@ -2,7 +2,9 @@
 #define CARDS_H
 #include <iostream>
 #include <algorithm>
+#include <iomanip>
 #include <random>
+#include <string>
 #include <chrono>
 
 class Card {

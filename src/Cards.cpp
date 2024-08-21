@@ -2,7 +2,13 @@
 
 //card class
 char Card::getSuit() {
-    return _suit;
+    switch(_suit) {
+        case 'H': return '♥';
+        case 'D': return '♦';
+        case 'S': return '♠';
+        case 'C': return '♣';
+        default: return _suit;
+    }
 }
 
 int Card::getValue() {

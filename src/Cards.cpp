@@ -41,7 +41,7 @@ void CardDeck::createDeck() {
 }
 
 void CardDeck::shuffleDeck() {
-    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    auto seed = static_cast<unsigned int>(std::chrono::system_clock::now().time_since_epoch().count() & 0xFFFFFFFF);
     std::default_random_engine engine(seed);
     std::shuffle(deck.begin(), deck.end(), engine);
 }

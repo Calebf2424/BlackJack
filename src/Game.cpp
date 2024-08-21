@@ -7,7 +7,7 @@ Game::~Game() {
     }
 
 void Game::runGame() {
-    std::cout << "Black Jack" << std::endl;
+    std::cout << "Black Jack\n\n";
     cardDeck->shuffleDeck();
     cardDeck->addToDealerDeck();
     cardDeck->addToPlayerDeck();

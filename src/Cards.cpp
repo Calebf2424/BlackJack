@@ -91,7 +91,7 @@ void CardDeck::updateBoard() {
     for (Card* card : dealer) {
         card->displayCardInfo();
     }
-    std::cout << "\n\n\n\n\n\n";
+    std::cout << "\n\n\n\n";
     std::cout << "Player:" << std::endl;
     for (Card* cardP : player) {
         cardP->displayCardInfo();

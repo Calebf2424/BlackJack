@@ -18,7 +18,7 @@ int Card::getValue() {
 #include <iomanip>
 
 void Card::displayCardInfo() {
-    char suit = getSuit();
+    std::string suit = getSuit();
     int value = getValue();
     std::string displayValue;
 

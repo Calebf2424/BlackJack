@@ -2,7 +2,9 @@
 #include "Cards.h"
 #include <cctype>
 
-Game::~Game() {if (cardDeck) delete cardDeck;}
+Game::~Game() {
+    if (cardDeck) delete cardDeck;
+    }
 
 void Game::runGame() {
     std::cout << "Black Jack" << std::endl;
@@ -26,7 +28,7 @@ void Game::runGame() {
     // Player's turn
     int pScore = cardDeck->getPlayerScore();
     while (pScore < 21) {
-        std::cout << "Hit? ";
+        std::cout << "Hit? (Y/N): ";
         char choice = handleInputYN();
         if (choice == 'Y') {
             cardDeck->addToPlayerDeck();
@@ -95,6 +97,7 @@ void Game::setDraw() {
 void Game::start() {
     cardDeck = new CardDeck();
     cardDeck->createDeck();
+    _playAgain = true;
     while (_playAgain) {
         runGame();
         playAgain();
@@ -103,6 +106,7 @@ void Game::start() {
 }
 
 void Game::playAgain() {
+    std::cout << "Play again? (Y/N): ";
     char c = handleInputYN();
     _playAgain = (c == 'Y');
 }
@@ -115,13 +119,12 @@ char Game::handleInputYN() {
     char input;
     bool valid = false;
     while (!valid) {
-        std::cout << "Enter Y/N" << std::endl;
         std::cin >> input;
         input = std::toupper(input);
         if (input == 'Y' || input == 'N') {
             valid = true;
         } else {
-            std::cout << "Invalid input" << std::endl;
+            std::cout << "Invalid input, enter Y or N:" << std::endl;
         }
     }
     return input;

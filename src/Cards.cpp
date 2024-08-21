@@ -35,7 +35,7 @@ void CardDeck::createDeck() {
   int index = 0;
   for (char suit : suits) {
     for (int value = 1; value <= 13; value++) {
-      deck[index] = new Card(suit, value);
+      deck[index++] = new Card(suit, value);
     }
   }
 }
@@ -131,15 +131,11 @@ void CardDeck::updatePlayerScore(Card* card) {
 }
 
 void CardDeck::hasDealerBust() {
-    if (_dealerScore > 21) {
-        _dealerBust = true;
-    }
+    _dealerBust = _dealerScore > 21;
 }
 
 void CardDeck::hasPlayerBust() {
-    if (_playerScore > 21) {
-        _playerBust = true;
-    }
+    _playerBust = _playerScore > 21;
 }
 
 bool CardDeck::getHasDealerBust() {

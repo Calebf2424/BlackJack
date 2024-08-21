@@ -3,10 +3,10 @@
 //card class
 std::string Card::getSuit() {
     switch(_suit) {
-        case 'H': return '♥';
-        case 'D': return '♦';
-        case 'S': return '♠';
-        case 'C': return '♣';
+        case 'H': return "\u2665"; // ♥
+        case 'D': return "\u2666"; // ♦
+        case 'S': return "\u2660"; // ♠
+        case 'C': return "\u2663"; // ♣
         default: return std::string(1, _suit);
     }
 }

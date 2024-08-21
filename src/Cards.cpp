@@ -98,17 +98,19 @@ CardDeck::~CardDeck() {
 }
 
 void CardDeck::updateBoard() {
-    std::cout << "Dealer" << std::endl;
+    clearScreen();
+    std::cout << "Dealer:" << std::endl;
     for (Card* card : dealer) {
         card->displayCardInfo();
     }
-    std::cout << "\n\n\n\n";
+    std::cout << std::endl << std::endl;
     std::cout << "Player:" << std::endl;
     for (Card* cardP : player) {
         cardP->displayCardInfo();
     }
-    std::cout << "\n";
+    std::cout << std::endl << std::endl;
 }
+
 
 int CardDeck::getDealerScore() {
     return _dealerScore;

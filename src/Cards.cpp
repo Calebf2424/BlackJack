@@ -1,7 +1,7 @@
 #include "Cards.h"
 
 //card class
-char Card::getSuit() {
+std::string Card::getSuit() {
     switch(_suit) {
         case 'H': return '♥';
         case 'D': return '♦';

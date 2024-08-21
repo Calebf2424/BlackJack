@@ -15,26 +15,31 @@ int Card::getValue() {
     return _value;
 }
 
+#include <iomanip>
+
 void Card::displayCardInfo() {
     char suit = getSuit();
     int value = getValue();
+    std::string displayValue;
+
     if(value == 1) {
-        std::cout << "A" << suit << " ";
-        return;
+        displayValue = "A";
     }
     else if(value == 11) {
-        std::cout << "J" << suit << " ";
+        displayValue = "J";
     }
     else if (value == 12) {
-        std::cout << "Q" << suit << " ";
+        displayValue = "Q";
     }
     else if (value == 13) {
-        std::cout << "K" << suit << " ";
+        displayValue = "K";
     } else {
-        std::cout << value << suit << " ";
+        displayValue = std::to_string(value);
     }
-    
+
+    std::cout << std::setw(2) << displayValue << suit << " ";
 }
+
 //deck class
 void CardDeck::createDeck() {
   char suits[] = {'H', 'D', 'S', 'C'};

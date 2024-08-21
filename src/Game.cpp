@@ -12,6 +12,7 @@ void Game::runGame() {
     cardDeck->addToDealerDeck();
     cardDeck->addToPlayerDeck();
     cardDeck->addToPlayerDeck();
+    clearScreen();
     cardDeck->updateBoard();
 
     // Check for initial Blackjacks
@@ -32,6 +33,7 @@ void Game::runGame() {
         char choice = handleInputYN();
         if (choice == 'Y') {
             cardDeck->addToPlayerDeck();
+            clearScreen();
             cardDeck->updateBoard();
             pScore = cardDeck->getPlayerScore();
             cardDeck->hasPlayerBust();
@@ -49,6 +51,7 @@ void Game::runGame() {
     int dScore = cardDeck->getDealerScore();
     while (dScore < 17) {
         cardDeck->addToDealerDeck();
+        clearScreen();
         cardDeck->updateBoard();
         dScore = cardDeck->getDealerScore();
         cardDeck->hasDealerBust();

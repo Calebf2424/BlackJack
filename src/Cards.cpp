@@ -96,6 +96,7 @@ void CardDeck::updateBoard() {
     for (Card* cardP : player) {
         cardP->displayCardInfo();
     }
+    std::cout << "\n";
 }
 
 int CardDeck::getDealerScore() {

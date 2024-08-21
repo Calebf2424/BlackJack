@@ -98,7 +98,6 @@ CardDeck::~CardDeck() {
 }
 
 void CardDeck::updateBoard() {
-    clearScreen();
     std::cout << "Dealer:" << std::endl;
     for (Card* card : dealer) {
         card->displayCardInfo();

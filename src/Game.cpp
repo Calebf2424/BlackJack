@@ -17,11 +17,10 @@ void Game::runGame() {
 
     // Check for initial Blackjacks
     if (cardDeck->playerBlackJack()) {
-        setWin();
+        setWin(true);
         calculateWinner();
         return;
     }
-    
 
     // Player's turn
     int pScore = cardDeck->getPlayerScore();
@@ -34,8 +33,8 @@ void Game::runGame() {
             cardDeck->updateBoard();
             pScore = cardDeck->getPlayerScore();
             cardDeck->hasPlayerBust();
-            bool playerBust = cardDeck->getHasPlayerBust();
-            if (playerBust) {
+            if (cardDeck->getHasPlayerBust()) {
+                setWin(false);  // Player has busted, they lose
                 calculateWinner();
                 return;
             }
@@ -48,6 +47,7 @@ void Game::runGame() {
     int dScore = cardDeck->getDealerScore();
     cardDeck->addToDealerDeck();
     if (cardDeck->dealerBlackJack()) {
+        setWin(false); // Dealer has blackjack, player loses
         calculateWinner();
         return;
     }
@@ -57,19 +57,20 @@ void Game::runGame() {
         cardDeck->updateBoard();
         dScore = cardDeck->getDealerScore();
         cardDeck->hasDealerBust();
-        bool dealerBust = cardDeck->getHasDealerBust();
-        if (dealerBust) {
-            setWin();
+        if (cardDeck->getHasDealerBust()) {
+            setWin(true);  // Dealer has busted, player wins
             calculateWinner();
             return;
         }
     }
 
     // Determine the outcome
-   if (cardDeck->getPlayerScore() > cardDeck->getDealerScore()) {
-        setWin();
+    if (cardDeck->getPlayerScore() > cardDeck->getDealerScore()) {
+        setWin(true);
     } else if (cardDeck->getPlayerScore() == cardDeck->getDealerScore()) {
         setDraw();
+    } else {
+        setWin(false); // Dealer wins if the scores are not equal and player has not already won
     }
     calculateWinner();
 }
@@ -83,6 +84,10 @@ void Game::calculateWinner() {
     win ? std::cout << "Player Wins!!" << std::endl : std::cout << "Dealer Wins!!" << std::endl;
 }
 
+void Game::setWin(bool win) {
+    _win = win;
+}
+
 bool Game::getDraw() {
     return _draw;
 }
@@ -91,9 +96,6 @@ bool Game::getWin() {
     return _win;
 }
 
-void Game::setWin() {
-    _win = true;
-}
 
 void Game::setDraw() {
     _draw = true;

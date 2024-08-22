@@ -10,7 +10,7 @@ class Game {
     void clearScreen();
     void playAgain();
     void runGame();
-    void setWin();
+    void setWin(bool);
     void setDraw();
     bool getWin();
     bool getDraw();

@@ -44,13 +44,14 @@ void Game::runGame() {
     }
 
     // Dealer's turn
-    int dScore = cardDeck->getDealerScore();
+    
     cardDeck->addToDealerDeck();
-    if (cardDeck->dealerBlackJack()) {
-        setWin(false); // Dealer has blackjack, player loses
+     if (cardDeck->dealerBlackJack()) {
+        setWin(false);
         calculateWinner();
         return;
     }
+    int dScore = cardDeck->getDealerScore();
     while (dScore < 17) {
         cardDeck->addToDealerDeck();
         clearScreen();
@@ -65,12 +66,12 @@ void Game::runGame() {
     }
 
     // Determine the outcome
-    if (cardDeck->getPlayerScore() > cardDeck->getDealerScore()) {
-        setWin(true);
-    } else if (cardDeck->getPlayerScore() == cardDeck->getDealerScore()) {
-        setDraw();
+      if (pScore > dScore) {
+        setWin(true);  // Player wins
+    } else if (pScore == dScore) {
+        setDraw();  // It's a draw
     } else {
-        setWin(false); // Dealer wins if the scores are not equal and player has not already won
+        setWin(false);  // Dealer wins
     }
     calculateWinner();
 }

@@ -70,7 +70,7 @@ void Game::runGame() {
     if (cardDeck->getPlayerScore() > cardDeck->getDealerScore()) {
         setWin(true);
     } else if (cardDeck->getPlayerScore() == cardDeck->getDealerScore()) {
-        setDraw();
+        setDrawTrue();
     } else {
         setWin(false); // Dealer wins if the scores are not equal and player has not already won
     }
@@ -81,6 +81,7 @@ void Game::calculateWinner() {
     if (getDraw()) {
         std::cout << "Game is a Draw !!" << std::endl;
         std::cout << "Dealer Score: " << cardDeck->getDealerScore() << "Player Score: " << cardDeck->getPlayerScore() << std::endl;
+        setDrawFalse();
     }
     bool win = getWin();
     win ? std::cout << "Player Wins!!" << std::endl : std::cout << "Dealer Wins!!" << std::endl;
@@ -100,8 +101,12 @@ bool Game::getWin() {
 }
 
 
-void Game::setDraw(bool draw) {
+void Game::setDrawTrue() {
     _draw = true;
+}
+
+void Game::setDrawFalse() {
+    _draw = false;
 }
 
 void Game::start() {

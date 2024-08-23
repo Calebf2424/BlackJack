@@ -45,6 +45,7 @@ void Game::runGame() {
 
     // Dealer's turn
     cardDeck->addToDealerDeck();
+    cardDeck->updateBoard();
     if (cardDeck->dealerBlackJack()) {
         setWin(false); // Dealer has blackjack, player loses
         calculateWinner();

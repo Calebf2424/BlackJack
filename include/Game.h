@@ -11,7 +11,8 @@ class Game {
     void playAgain();
     void runGame();
     void setWin(bool);
-    void setDraw();
+    void setDrawTrue();
+    void setDrawFalse();
     bool getWin();
     bool getDraw();
     void calculateWinner();

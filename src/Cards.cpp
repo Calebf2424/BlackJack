@@ -125,6 +125,9 @@ void CardDeck::updateDealerScore(Card* card) {
         _dealerAces++;
         toAdd = 11;
     }
+    else if (toAdd == 11 || toAdd == 12 || toAdd == 13) {
+        toAdd = 11;
+    }
     _dealerScore += toAdd;
     while (_dealerScore > 21 && _dealerAces > 0) {
         _dealerScore -= 10;

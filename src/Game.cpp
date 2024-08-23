@@ -80,7 +80,7 @@ void Game::runGame() {
 void Game::calculateWinner() {
     if (getDraw()) {
         std::cout << "Game is a Draw !!" << std::endl;
-        return;
+        std::cout << "Dealer Score: " << cardDeck->getDealerScore() << "Player Score: " << cardDeck->getPlayerScore() << std::endl;
     }
     bool win = getWin();
     win ? std::cout << "Player Wins!!" << std::endl : std::cout << "Dealer Wins!!" << std::endl;
@@ -100,7 +100,7 @@ bool Game::getWin() {
 }
 
 
-void Game::setDraw() {
+void Game::setDraw(bool draw) {
     _draw = true;
 }
 

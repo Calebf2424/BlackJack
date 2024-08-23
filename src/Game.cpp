@@ -50,7 +50,7 @@ void Game::runGame() {
         calculateWinner();
         return;
     }
-    while (cardDeck->getDealerScore < 17) {
+    while (cardDeck->getDealerScore() < 17) {
         cardDeck->addToDealerDeck();
         clearScreen();
         cardDeck->updateBoard();

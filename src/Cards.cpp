@@ -108,6 +108,8 @@ void CardDeck::updateBoard() {
         cardP->displayCardInfo();
     }
     std::cout << std::endl << std::endl;
+
+    std::cout << "Dealer Score: " << getDealerScore() << " " << "Player Score: " << getPlayerScore() << std::endl;
 }
 
 

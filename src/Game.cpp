@@ -32,7 +32,7 @@ void Game::runGame() {
             clearScreen();
             cardDeck->updateBoard();
             pScore = cardDeck->getPlayerScore();
-            cardDeck->hasPlayerBust()
+            cardDeck->hasPlayerBust();
             if (cardDeck->getHasPlayerBust()) {
                 setWin(false);  // Player has busted, they lose
                 calculateWinner();
@@ -51,7 +51,7 @@ void Game::runGame() {
         return;
     }
     int dScore = cardDeck->getDealerScore();
-    while (dscore < 17) {
+    while (dScore < 17) {
         cardDeck->addToDealerDeck();
         clearScreen();
         cardDeck->updateBoard();

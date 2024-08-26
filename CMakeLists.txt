@@ -1,21 +1,27 @@
-# Minimum required CMake version
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.16)
+project(CMakeSFMLProject LANGUAGES CXX)
 
-# Project name and language
-project(BlackJack CXX)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
-# Set C++ standard
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+include(FetchContent)
+FetchContent_Declare(SFML
+    GIT_REPOSITORY https://github.com/SFML/SFML.git
+    GIT_TAG 2.6.x)
+FetchContent_MakeAvailable(SFML)
 
-# Include directories
-include_directories(include)
-
-# Add executable target
 add_executable(BlackJack
     src/main.cpp
     src/Cards.cpp
     src/Game.cpp
 )
+target_link_libraries(main PRIVATE sfml-graphics)
+target_compile_features(main PRIVATE cxx_std_17)
 
-#set(CMAKE_BUILD_TYPE Release)
+if(WIN32)
+    add_custom_command(
+        TARGET main
+        COMMENT "Copy OpenAL DLL"
+        PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${SFML_SOURCE_DIR}/extlibs/bin/$<IF:$<EQUAL:${CMAKE_SIZEOF_VOID_P},8>,x64,x86>/openal32.dll $<TARGET_FILE_DIR:main>
+        VERBATIM)
+endif()
